@@ -25,8 +25,8 @@ function createConfigFile($args){
     $installLoc = $args['install_location'];
     $config = createConfigArray($args);
     echo var_export($config,1)
-    #$contents = '<?php'."\n".'$sugar_config_si = '.var_export($config,1).";\n";
-    #file_put_contents($installLoc.'/config_si.php',$contents);
+    /*$contents = '<?php'."\n".'$sugar_config_si = '.var_export($config,1).";\n";
+    file_put_contents($installLoc.'/config_si.php',$contents);*/
 }
 
 function createConfigArray($args){
