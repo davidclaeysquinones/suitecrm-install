@@ -16,7 +16,7 @@ preg_match("/<bottle>(.*)<\/bottle>/s",$results,$matches);
 echo "Install message was: ".$matches[1]."\n";
 
 function getCLIArguments(){
-  return getopt("",array("install_location:","db_host:","db_user:","db_pass:","db_name:","site_username:","site_pass:","site_host:","site_name:"));
+  return getopt(array("install_location:","db_host:","db_user:","db_pass:","db_name:","site_username:","site_pass:","site_host:","site_name:"));
 }
 
 function getArguments(){
