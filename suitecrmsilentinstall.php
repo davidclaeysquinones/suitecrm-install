@@ -67,3 +67,4 @@ function createConfigArray($args){
   );
   return $configArr;
 }
+?>
