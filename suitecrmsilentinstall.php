@@ -14,7 +14,9 @@ preg_match("/<bottle>(.*)<\/bottle>/s",$results,$matches);
 echo "Install message was: ".$matches[1]."\n";
 
 function getCLIArguments(){
-  return getopt("install_location:db_host:db_user:db_pass:db_name:site_username:site_pass:site_host:site_name:");
+  $arguments = getopt("install_location:db_host:db_user:db_pass:db_name:site_username:site_pass:site_host:site_name:");
+  echo $arguments;
+  return $arguments;
 }
 
 function getArguments(){
@@ -24,9 +26,8 @@ function getArguments(){
 function createConfigFile($args){
     $installLoc = $args['install_location'];
     $config = createConfigArray($args);
-    echo var_export($config,1);
-    /*$contents = '<?php'."\n".'$sugar_config_si = '.var_export($config,1).";\n";
-    file_put_contents($installLoc.'/config_si.php',$contents);*/
+    $contents = '<?php'."\n".'$sugar_config_si = '.var_export($config,1).";\n";
+    file_put_contents($installLoc.'/config_si.php',$contents);
 }
 
 function createConfigArray($args){
