@@ -4,6 +4,7 @@
  * php suitecrmsilentinstall.php --install_location /var/www/html/suitecrmpath --db_host localhost --db_user dbuser --db_pass dbpass --db_name dbname --site_username admin --site_pass password --site_host example.com --site_name "SuiteCRM Silent Install"
  */
 $args = getArguments();
+echo "arguments";
 echo implode("args ", $args);
 createConfigFile($args);
 $url = "http://".$args['site_host']."/install.php?goto=SilentInstall&cli=true";
