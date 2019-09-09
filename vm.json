@@ -42,8 +42,7 @@
 						"createOption": "FromImage",
                         "caching": "ReadWrite",
 						"diskSizeGB": "[parameters('diskSize')]"
-                    },
-                    "dataDisks": []
+                    }
                 },
                 "osProfile": {
                     "computerName": "[parameters('vmName')]",
@@ -53,7 +52,6 @@
                         "disablePasswordAuthentication": false,
                         "provisionVMAgent": true
                     },
-                    "secrets": [],
                     "allowExtensionOperations": true
                 },
                 "networkProfile": {
@@ -65,8 +63,7 @@
                 },
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
-                        "enabled": true,
-                        "storageUri": "https://suitecrmpocdiag266.blob.core.windows.net/"
+                        "enabled": true
                     }
                 }
             }
