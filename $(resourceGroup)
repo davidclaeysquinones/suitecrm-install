@@ -1,0 +1,59 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "interfaceName": {
+            "type": "String"
+        },
+        "externalIp": {
+            "type": "String"
+        },
+        "virtualNetwork": {
+            "type": "String"
+        },
+        "networkSecurityGroup": {
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2019-06-01",
+            "name": "[parameters('interfaceName')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "07ec3f4e-5866-48d4-8795-ee2dcb928498",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.1.2.4",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[parameters('externalIp')]"
+                            },
+                            "subnet": {
+                                "id": "[concat(parameters('virtualNetwork'), '/subnets/default')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": []
+                },
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "networkSecurityGroup": {
+                    "id": "[parameters('networkSecurityGroup')]"
+                },
+                "tapConfigurations": []
+            }
+        }
+    ]
+}
