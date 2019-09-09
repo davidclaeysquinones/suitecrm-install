@@ -4,8 +4,6 @@
  * php suitecrmsilentinstall.php --install_location /var/www/html/suitecrmpath --db_host localhost --db_user dbuser --db_pass dbpass --db_name dbname --site_username admin --site_pass password --site_host example.com --site_name "SuiteCRM Silent Install"
  */
 $args = getArguments();
-echo "arguments";
-echo implode("args ", $args);
 createConfigFile($args);
 $url = "http://".$args['site_host']."/install.php?goto=SilentInstall&cli=true";
 $ch = curl_init($url);
@@ -16,7 +14,7 @@ preg_match("/<bottle>(.*)<\/bottle>/s",$results,$matches);
 echo "Install message was: ".$matches[1]."\n";
 
 function getCLIArguments(){
-  return getopt(array("install_location:","db_host:","db_user:","db_pass:","db_name:","site_username:","site_pass:","site_host:","site_name:"));
+  return getopt("install_location:db_host:db_user:db_pass:db_name:site_username:site_pass:site_host:site_name:");
 }
 
 function getArguments(){
