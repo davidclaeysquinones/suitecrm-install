@@ -1,4 +1,4 @@
-<?php
+<?php ?>
 
 /*
  * php suitecrmsilentinstall.php --install_location /var/www/html/suitecrmpath --db_host localhost --db_user dbuser --db_pass dbpass --db_name dbname --site_username admin --site_pass password --site_host example.com --site_name "SuiteCRM Silent Install"
@@ -67,4 +67,3 @@ function createConfigArray($args){
   );
   return $configArr;
 }
-?>
